@@ -1,0 +1,16 @@
+  body {
+    font-family: 'Rye';font-size: 22px;
+    color: black;
+     }
+
+   alert{
+     font-family: 'Nosifer';font-size: 22px;
+   }
+   chart{
+   font-family: 'Milonga';font-size: 24px;
+   }
+     chart_color{
+    font-family: 'Special Elite';font-size: 22px;
+    font-weight: bold;
+    color: green;
+   }

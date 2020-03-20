@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Life protector</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/road.css') }}"/>
+     <link href='https://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Milonga' rel='stylesheet'>
+ </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+ <body>
+ <div class="map-image">
+ </br>
+ <h1>
+     "Every Hour 17 People Die in India Due to Road Accidents"
+ </h1>
+ <h5>
+     This statistics makes us to afraid of driving on Indian roads. But if we take little efforts by together we can avoid those fatal things in our life. You can get the safety tips for driving by using the accident report from the Indian government   <a href="https://data.gov.in/catalog/road-accidents-india-2017?filters%5Bfield_catalog_reference%5D=6619603&format=json&offset=0&limit=6&sort%5Bcreated%5D=desc">website</a> by submitting the below form.
+ </h5>
+ </br>
+ <form method=post>
+     <div class="form-group">
+        <label for="state">In which state you are going to travel?</label>
+            <select id="state" name="accident" class="dropdown">
+                <option value="" selected disabled>Select any one of the states</option>
+                    <option value=101>  Andhra Pradesh </option>
+                    <option value=102>  Arunachal Pradesh </option>
+                    <option value=103>  Assam </option>
+                    <option value=104>  Bihar </option>
+                    <option value=105>  Chhattisgarh </option>
+                    <option value=106>  Goa </option>
+                    <option value=107>  Gujarat </option>
+                    <option value=108>  Haryana </option>
+                    <option value=109>  Himachal Pradesh </option>
+                    <option value=110>  Jammu & Kashmir </option>
+                    <option value=111>  Jharkhand </option>
+                    <option value=112>  Karnataka </option>
+                    <option value=113>  Kerala </option>
+                    <option value=114>  Madhya Pradesh </option>
+                    <option value=115>  Maharashtra </option>
+                    <option value=116>  Manipur </option>
+                    <option value=117>  Meghalaya </option>
+                    <option value=118>  Mizoram </option>
+                    <option value=119>  Nagaland </option>
+                    <option value=120>  Orissa </option>
+                    <option value=121>  Punjab </option>
+                    <option value=122>  Rajasthan </option>
+                    <option value=123>  Sikkim </option>
+                    <option value=124>  Tamil Nadu </option>
+                    <option value=125>  Telangana </option>
+                    <option value=126>  Tripura </option>
+                    <option value=127>  Uttarakhand </option>
+                    <option value=128>  Uttar Pradesh </option>
+                    <option value=129>  West Bengal </option>
+                    <option value=130>  A & N Islands </option>
+                    <option value=131>  Chandigarh </option>
+                    <option value=132>  D & N Haveli </option>
+                    <option value=133>  Daman & Diu </option>
+                    <option value=134>  Delhi </option>
+                    <option value=135>  Lakshadweep </option>
+                    <option value=136>  Puducherry </option>
+            </select>
+     </div>
+    <label>Are you driving without a helmet?       </label>
+     <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" value=21 class="form-check-input" name="accident">YES
+          </label>
+     </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" value=100 class="form-check-input" name="accident">NO
+      </label>
+    </div>
+
+     <div class="form-group">
+        <label for="irresponsibility">Select the activity that you do while driving</label>
+            <select id="irresponsibility" name="accident" class="selectpicker" multiple data-live-search="true">
+                  <option value=31> Intake of Alcohal</option>
+                    <option value=32> Exceeding lawful speed</option>
+                    <option value=33> Jumping Red Light</option>
+                    <option value=34> Driving on wrong side</option>
+                    <option value=35> Jumping Changing lanes</option>
+                    <option value=36> Overtaking</option>
+                    <option value=37> Using Mobile Phones while driving</option>
+                    <option value=38> Asleep or Fatigued or Sick</option>
+            </select>
+     </div>
+     <div class="form-group">
+        <label for="place">Will you go through these areas while traveling?</label>
+            <select id="place" name="accident" class="selectpicker" multiple data-live-search="true">
+                   <option value=41> Near School College any other educational Institutes </option>
+                    <option value=42> Pedestrian crossing </option>
+                    <option value=43> Market Place </option>
+                    <option value=44> Near a Religious Place </option>
+                    <option value=45> Near Hospital </option>
+                    <option value=46> Narrow bridge or culverts </option>
+                    <option value=47> Near Petrol Pump </option>
+                    <option value=48> Near Bus Stand </option>
+                    <option value=49> Near or on Road under Construction </option>
+            </select>
+     </div>
+     <div class="form-group">
+        <label for="time">At what time you are going to travel?</label>
+            <select id="time" name="accident" class="dropdown">
+                <option value="" selected disabled>Select the time</option>
+                 <option value=51> 06 to 09 hrs </option>
+                <option value=52> 09 to 12 hrs </option>
+                <option value=53> 12 to 15 hrs </option>
+                <option value=54> 15 to 18 hrs </option>
+                <option value=55> 18 to 21 hrs </option>
+                <option value=56> 21 to 24 hrs </option>
+                <option value=57> 00 to 03 hrs </option>
+                <option value=58> 03 to 06 hrs </option>
+            </select>
+     </div><div class="form-group">
+        <label for="climate">What kind of climate you are feeling now?</label>
+            <select id="climate" name="accident" class="selectpicker" multiple data-live-search="true">
+              <option value=71> Mist fog </option>
+            <option value=72> Cloudy </option>
+            <option value=73> Heavy rain </option>
+            <option value=74> Flooding of slipways rivulers </option>
+            <option value=75> Hail sleet </option>
+            <option value=76> snow </option>
+            <option value=77> Strong wind </option>
+            <option value=78> Dust storm </option>
+            <option value=79> Very hot </option>
+            <option value=80> Very cold </option>
+            </select>
+     </div>
+     <input type="submit" class="btn btn-success" value="Get safety tips">
+</form>
+ </div>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+  body {
+    font-family: 'Amita';font-size: 22px;
+    color: white;
+     }
+
+   .map-image {
+  background-image: url("map2_opacity.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 1;
+}
+  h1 {
+     font-family: 'Diplomata';font-size: 24px;
+     line-height: 200%;
+     color:  #ea443a;}
+  h2{
+ font-family: "Times New Roman", Times, serif;
+ color: white;}
+ h5{
+ font-family: 'Milonga';font-size: 24px;
+ color:  #10beca;}

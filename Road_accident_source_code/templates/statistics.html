@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safey report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/statistics.css') }}"/>
+    <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Milonga' rel='stylesheet'>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<body>
+
+{% if overall_safety > 0 %}
+<alert>
+<div class="p-3 mb-2 bg-success text-white"><center>Your travel is safe. Enjoy your ride</center></div>
+    </alert>
+{% endif %}
+{% if overall_safety < 0 and overall_safety > -25 %}
+<alert>
+<div class="p-3 mb-2 bg-warning text-dark"><center>Warning! You are safe to travel, but still you need to be careful</center></div>
+        </alert>
+{% endif %}
+{% if overall_safety < - 25 %}
+    <alert>
+<div class="p-3 mb-2 bg-danger text-white"><center>Under danger! You need to take more safety precaution as suggested below</center></div>
+            </alert>
+{% endif %}
+{% if negative_value_count == 0 %}
+<chart_color>
+    Congrats you are having enough safety for your travel. Now there is no suggestion from us.
+</chart_color>
+{% endif %}
+<!--<div class="page-header">-->
+<table class="table table-bordered">
+<!--<table class="table">-->
+<!--    <table class="table table-dark">-->
+    <thead>
+        {% if negative_value_count > 0 %}
+        <tr>
+            <th>Safety measures to follow</th>
+            <th>Percentage of risk you can avoid</th>
+        <tr>
+        {% endif %}
+    </thead>
+    <tbody>
+        {% for iteration in range (accident_threshold_value|length) %}
+        {% if accident_threshold_value[iteration] < 0 and accident_threshold_value[iteration] > -4 %}
+        <tr>
+            <td>{{ suggestion[iteration] }}</td>
+            <td>{{ (accident_threshold_value[iteration]*3)|abs }}</td>
+        </tr>
+          {% endif %}
+            {% if accident_threshold_value[iteration] < -4 and accident_threshold_value[iteration] > -9 %}
+        <tr class="table-warning">
+            <td>{{ suggestion[iteration] }}</td>
+            <td>{{ (accident_threshold_value[iteration]*3)|abs }}</td>
+        </tr>
+          {% endif %}
+         {% if accident_threshold_value[iteration] < -9 %}
+        <tr class="table-danger">
+            <td>{{ suggestion[iteration] }}</td>
+            <td>{{ (accident_threshold_value[iteration]*3)|abs }}</td>
+        </tr>
+          {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+    <chart>
+
+<label>Check the below charts regarding Indian road accidents</label>
+    </chart>
+</br>
+ <img src="{{ year_chart }}" class="img-rounded" alt="Accidents in india from the year 1970">
+<img src="{{ fatal_accident }}" class="img-rounded" alt="Fatal accidents amoung the states">
+<img src="{{ irresponsibility }}" class="img-rounded" alt="Accidents dude to irresponsibility">
+<!--<img src="{{ year_chart }}" class="img-fluid" alt="Accidents in india from the year 1970">-->
+<!-- <img src="{{ year_chart }}" alt="Accidents in india from the year 1970">-->
+</body>
+</html>
